@@ -1,7 +1,10 @@
-const{DataTypes} = require('sequelize');
+const{DataTypes,Model} = require('sequelize');
 const sequelize = require('./index')
 
-const user = sequelize.define('user',{
+class user extends Model{}
+
+user.init({
+
     firstName:{
         type:DataTypes.STRING,
         allowNull:false
@@ -12,9 +15,9 @@ const user = sequelize.define('user',{
         
 
 },{
+   sequelize,
+    ModelName:'user'
 
-
-    table:'user'
 });
 console.log(user === sequelize.models.user);
 
